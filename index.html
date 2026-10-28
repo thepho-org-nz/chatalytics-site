@@ -213,6 +213,54 @@
   .foot a{color:var(--ink-soft)}
   .foot a:hover{color:var(--ink)}
 
+  /* ---------- try it / examples ---------- */
+  .try-wrap{display:grid;grid-template-columns:330px 1fr;gap:20px;align-items:start}
+  .try-qlabel{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:12px}
+  .try-qs{display:flex;flex-direction:column;gap:10px}
+  .qbtn{text-align:left;cursor:pointer;background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;padding:14px 15px;color:var(--ink-soft);font-size:14.5px;font-family:inherit;
+    line-height:1.45;transition:border-color .2s,background .2s,color .2s;display:flex;gap:10px;align-items:flex-start}
+  .qbtn .q-ic{flex:0 0 auto;width:22px;height:22px;border-radius:7px;background:rgba(255,255,255,.07);
+    display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:1px;color:var(--ink-mute)}
+  .qbtn:hover{border-color:var(--line-2);color:var(--ink)}
+  .qbtn.active{border-color:rgba(94,234,212,.5);background:var(--surface-2);color:var(--ink);box-shadow:0 10px 32px -16px rgba(56,189,248,.7)}
+  .qbtn.active .q-ic{background:var(--accent-grad);color:#04121a}
+
+  .try-answer{background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);
+    border:1px solid var(--line-2);border-radius:var(--radius-lg);overflow:hidden;
+    box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+  .ta-bar{display:flex;align-items:center;gap:8px;padding:12px 18px;border-bottom:1px solid var(--line)}
+  .ta-bar i{width:10px;height:10px;border-radius:50%;display:block}
+  .ta-bar i:nth-child(1){background:#ff5f57}.ta-bar i:nth-child(2){background:#febc2e}.ta-bar i:nth-child(3){background:#28c840}
+  .ta-bar span{margin-left:6px;font-size:12px;color:var(--ink-mute)}
+  .ta-body{padding:22px clamp(18px,3vw,28px) 26px}
+  .ta-q{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;color:var(--ink);margin-bottom:18px}
+  .ta-q .who{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.07);display:grid;place-items:center;font-size:11px;color:var(--ink-mute);font-weight:700}
+  .ta-headline{font-size:clamp(19px,2.8vw,24px);font-weight:700;letter-spacing:-.02em;line-height:1.28}
+  .ta-headline b{color:var(--teal);font-weight:700}
+  .ta-chartwrap{margin:18px 0 2px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:16px 18px 14px}
+  .ta-ctitle{font-size:12.5px;color:var(--ink-mute);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .ta-ctitle .kind{color:var(--cyan);font-weight:600;white-space:nowrap}
+  .ta-narr{color:var(--ink-soft);font-size:14.5px;margin-top:16px}
+  .ta-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+
+  /* chart primitives */
+  .hbars{display:flex;flex-direction:column;gap:11px}
+  .hbar{display:grid;grid-template-columns:150px 1fr 40px;align-items:center;gap:12px;font-size:12.5px}
+  .hbar .lab{color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hbar .track{height:10px;border-radius:6px;background:rgba(255,255,255,.06);overflow:hidden}
+  .hbar .fill{height:100%;border-radius:6px;background:var(--accent-grad)}
+  .hbar .val{text-align:right;color:var(--ink-mute);font-variant-numeric:tabular-nums}
+  .vbars{display:flex;align-items:flex-end;gap:7px;height:150px}
+  .vbars .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;height:100%;justify-content:flex-end}
+  .vbars .bar{width:100%;max-width:28px;border-radius:5px 5px 0 0;background:var(--accent-grad)}
+  .vbars .cl{font-size:10.5px;color:var(--ink-mute)}
+  .donut-wrap{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+  .donut-legend{display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--ink-soft)}
+  .donut-legend .li{display:flex;align-items:center;gap:9px}
+  .donut-legend .sw{width:12px;height:12px;border-radius:4px;flex:0 0 auto}
+  @media(max-width:820px){.try-wrap{grid-template-columns:1fr}.hbar{grid-template-columns:120px 1fr 38px}}
+
   /* ---------- reveal animation ---------- */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
@@ -236,6 +284,7 @@
     </a>
     <nav class="nav-links">
       <a href="#features">Features</a>
+      <a href="#examples">Examples</a>
       <a href="#security">Security</a>
       <a href="#how">How it works</a>
       <a href="#who">Who it's for</a>
@@ -341,6 +390,29 @@
           <p>Choose the processing option that fits your governance. Every answer is labelled with where it was handled, so there's never a question about it later.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ SEE IT IN ACTION ============ -->
+  <section id="examples">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-tag">See it in action</div>
+        <h2>Real questions, real answers</h2>
+        <p>Pick a question to see the kind of answer chatalytics gives back — a plain-English headline, a chart you can read at a glance, and the context behind it.</p>
+        <p style="font-size:13px;color:var(--ink-mute);margin-top:12px">Illustrative examples with sample data — not real figures.</p>
+      </div>
+      <div class="try-wrap reveal">
+        <div>
+          <div class="try-qlabel">Try a question</div>
+          <div class="try-qs" id="tryQs"></div>
+        </div>
+        <div class="try-answer">
+          <div class="ta-bar"><i></i><i></i><i></i><span>chatalytics</span></div>
+          <div class="ta-body" id="taBody"></div>
+        </div>
+      </div>
+      <noscript><p style="color:var(--ink-mute);text-align:center;margin-top:22px">Enable JavaScript to explore the interactive examples.</p></noscript>
     </div>
   </section>
 
@@ -501,6 +573,107 @@
       });
     },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
     els.forEach(function(e){io.observe(e);});
+  })();
+
+  // interactive examples
+  (function(){
+    function lineChart(vals){
+      var W=320,top=12,bot=118,pad=12;
+      var max=Math.max.apply(null,vals),min=Math.min.apply(null,vals),span=(max-min)||1;
+      var step=(W-pad*2)/(vals.length-1);
+      var pts=vals.map(function(v,i){return [pad+i*step, top+(1-(v-min)/span)*(bot-top)];});
+      var line=pts.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1);}).join(' ');
+      var area=pad+','+bot+' '+line+' '+(pad+(vals.length-1)*step).toFixed(1)+','+bot;
+      var dots=pts.map(function(p){return '<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="3" fill="#0e1119" stroke="#5eead4" stroke-width="2"/>';}).join('');
+      return '<svg viewBox="0 0 320 130" width="100%" style="height:auto;display:block" role="img" aria-label="line chart">'+
+        '<defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#818cf8"/></linearGradient>'+
+        '<linearGradient id="la" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#38bdf8" stop-opacity=".35"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></linearGradient></defs>'+
+        '<polyline points="'+area+'" fill="url(#la)" stroke="none"/>'+
+        '<polyline points="'+line+'" fill="none" stroke="url(#lg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'+dots+'</svg>';
+    }
+    function hbars(items){
+      return '<div class="hbars">'+items.map(function(it){
+        return '<div class="hbar"><span class="lab">'+it.lab+'</span><span class="track"><span class="fill" style="width:'+it.w+'%"></span></span><span class="val">'+it.disp+'</span></div>';
+      }).join('')+'</div>';
+    }
+    function vbars(cols){
+      var max=Math.max.apply(null,cols.map(function(c){return c.h;}));
+      return '<div class="vbars">'+cols.map(function(c){
+        return '<div class="col"><div class="bar" style="height:'+(c.h/max*100).toFixed(1)+'%"></div><span class="cl">'+c.cl+'</span></div>';
+      }).join('')+'</div>';
+    }
+    function donut(pct,legend){
+      var r=42,c=2*Math.PI*r,dash=c*pct/100;
+      var leg='<div class="donut-legend">'+legend.map(function(l){return '<span class="li"><span class="sw" style="background:'+l.c+'"></span>'+l.t+'</span>';}).join('')+'</div>';
+      return '<div class="donut-wrap"><svg width="128" height="128" viewBox="0 0 120 120" role="img" aria-label="donut chart">'+
+        '<defs><linearGradient id="dg" x1="0" x2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs>'+
+        '<circle cx="60" cy="60" r="'+r+'" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="15"/>'+
+        '<circle cx="60" cy="60" r="'+r+'" fill="none" stroke="url(#dg)" stroke-width="15" stroke-linecap="round" stroke-dasharray="'+dash.toFixed(1)+' '+(c-dash).toFixed(1)+'" transform="rotate(-90 60 60)"/>'+
+        '<text x="60" y="57" text-anchor="middle" fill="#f3f5f9" font-size="21" font-weight="700" font-family="sans-serif">'+pct+'%</text>'+
+        '<text x="60" y="74" text-anchor="middle" fill="#8b93a7" font-size="9.5" font-family="sans-serif">rural/remote</text></svg>'+leg+'</div>';
+    }
+    function chips(arr){
+      return '<div class="ta-chips">'+arr.map(function(t){
+        return '<span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>'+t+'</span>';
+      }).join('')+'</div>';
+    }
+
+    var EX=[
+      {q:'How has our enrolled population trended over the past eight quarters?',
+       head:'Up <b>4.1%</b> over two years — and accelerating',
+       kind:'Line · quarterly', ctitle:'Enrolled population, indexed',
+       chart:lineChart([60,63,62,66,70,72,78,85]),
+       narr:'Enrolment has grown almost every quarter, with the fastest growth in the last two. The gain is concentrated in higher-deprivation catchments.',
+       chips:['code shown','as-at latest quarter','de-identified']},
+      {q:'What makes up our capitation funding this quarter, by component?',
+       head:'<b>Eight</b> components — first-contact care leads',
+       kind:'Bar · share of total', ctitle:'Capitation by component (% of total)',
+       chart:hbars([
+         {lab:'First-contact care',w:100,disp:'34%'},
+         {lab:'Base capitation',w:76,disp:'26%'},
+         {lab:'Services to improve access',w:41,disp:'14%'},
+         {lab:'Care continuity',w:29,disp:'10%'},
+         {lab:'Health promotion',w:18,disp:'6%'},
+         {lab:'Rural adjustment',w:12,disp:'4%'},
+         {lab:'Under-14 zero fees',w:9,disp:'3%'},
+         {lab:'Other',w:9,disp:'3%'}]),
+       narr:'Two components make up well over half of capitation. The rural and access-related pools are smaller, but they matter most for equity-weighted practices.',
+       chips:['code shown','component definitions applied','as-at latest quarter']},
+      {q:'How is our enrolled population spread across deprivation deciles?',
+       head:'Skewed to higher deprivation — deciles <b>8–10</b> hold 46%',
+       kind:'Bar · distribution', ctitle:'Share of enrolees by deprivation decile (1 = least deprived)',
+       chart:vbars([{h:4,cl:'1'},{h:6,cl:'2'},{h:7,cl:'3'},{h:8,cl:'4'},{h:9,cl:'5'},{h:11,cl:'6'},{h:12,cl:'7'},{h:14,cl:'8'},{h:15,cl:'9'},{h:17,cl:'10'}]),
+       narr:'The enrolled population leans toward higher deprivation, which shapes expected demand, equity funding and screening priorities.',
+       chips:['code shown','joined to deprivation reference','de-identified']},
+      {q:'How many of our practices serve rural or remote communities?',
+       head:'About <b>1 in 6</b> practices are rural or remote',
+       kind:'Donut · classification', ctitle:'Practices by urban / rural classification',
+       chart:donut(16,[{c:'#38bdf8',t:'Rural / remote — 16%'},{c:'rgba(255,255,255,.14)',t:'Urban — 84%'}]),
+       narr:'Rural and remote practices are a minority by count, but they attract rural adjustment funding and face different access challenges.',
+       chips:['code shown','official urban/rural classification','as-at latest']}
+    ];
+
+    var qs=document.getElementById('tryQs'), body=document.getElementById('taBody');
+    if(!qs||!body) return;
+    function render(i){
+      var ex=EX[i];
+      body.innerHTML=
+        '<div class="ta-q"><span class="who">You</span><span>'+ex.q+'</span></div>'+
+        '<div class="ta-headline">'+ex.head+'</div>'+
+        '<div class="ta-chartwrap"><div class="ta-ctitle"><span>'+ex.ctitle+'</span><span class="kind">'+ex.kind+'</span></div>'+ex.chart+'</div>'+
+        '<div class="ta-narr">'+ex.narr+'</div>'+chips(ex.chips);
+    }
+    EX.forEach(function(ex,i){
+      var b=document.createElement('button');
+      b.className='qbtn'+(i===0?' active':''); b.type='button';
+      b.innerHTML='<span class="q-ic">?</span><span>'+ex.q+'</span>';
+      b.addEventListener('click',function(){
+        Array.prototype.forEach.call(qs.querySelectorAll('.qbtn'),function(x){x.classList.remove('active');});
+        b.classList.add('active'); render(i);
+      });
+      qs.appendChild(b);
+    });
+    render(0);
   })();
 </script>
 </body>
