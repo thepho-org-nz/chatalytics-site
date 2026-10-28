@@ -263,8 +263,8 @@
   @media(max-width:820px){.try-wrap{grid-template-columns:1fr}.hbar{grid-template-columns:120px 1fr 38px}}
 
   /* ---------- reveal animation ---------- */
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-  .reveal.in{opacity:1;transform:none}
+  /* all content visible on load — no scroll-triggered reveal, so nothing reads as "missing" */
+  .reveal{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
     .pulse{animation:none}
@@ -564,18 +564,6 @@
 </footer>
 
 <script>
-  // reveal-on-scroll
-  (function(){
-    var els = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
-      });
-    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-    els.forEach(function(e){io.observe(e);});
-  })();
-
   // interactive examples
   (function(){
     function lineChart(vals){
@@ -646,7 +634,7 @@
        chart:vbars([{h:4,cl:'1'},{h:6,cl:'2'},{h:7,cl:'3'},{h:8,cl:'4'},{h:9,cl:'5'},{h:11,cl:'6'},{h:12,cl:'7'},{h:14,cl:'8'},{h:15,cl:'9'},{h:17,cl:'10'}]),
        narr:'The enrolled population leans toward higher deprivation, which shapes expected demand, equity funding and screening priorities.',
        chips:['code shown','joined to deprivation reference','de-identified']},
-      {q:'Across the IMD domains, where is our population most deprived — and how is access?',
+      {q:'What areas of need do our population experience?',
        head:'<b>Access</b> and <b>Housing</b> are the sharpest domains',
        kind:'Bar · IMD 2023 domains', ctitle:'Enrolees in the most-deprived IMD quintile, by domain (%)',
        chart:hbars([
