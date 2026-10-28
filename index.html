@@ -255,6 +255,7 @@
   .vbars .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;height:100%;justify-content:flex-end}
   .vbars .bar{width:100%;max-width:28px;border-radius:5px 5px 0 0;background:var(--accent-grad)}
   .vbars .cl{font-size:10.5px;color:var(--ink-mute)}
+  .vbars .vv{font-size:10.5px;color:var(--ink-soft);font-weight:600;font-variant-numeric:tabular-nums}
   .donut-wrap{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
   .donut-legend{display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--ink-soft)}
   .donut-legend .li{display:flex;align-items:center;gap:9px}
@@ -599,7 +600,7 @@
     function vbars(cols){
       var max=Math.max.apply(null,cols.map(function(c){return c.h;}));
       return '<div class="vbars">'+cols.map(function(c){
-        return '<div class="col"><div class="bar" style="height:'+(c.h/max*100).toFixed(1)+'%"></div><span class="cl">'+c.cl+'</span></div>';
+        return '<div class="col"><span class="vv">'+c.h+'%</span><div class="bar" style="height:'+(c.h/max*100).toFixed(1)+'%"></div><span class="cl">'+c.cl+'</span></div>';
       }).join('')+'</div>';
     }
     function donut(pct,legend){
@@ -645,6 +646,19 @@
        chart:vbars([{h:4,cl:'1'},{h:6,cl:'2'},{h:7,cl:'3'},{h:8,cl:'4'},{h:9,cl:'5'},{h:11,cl:'6'},{h:12,cl:'7'},{h:14,cl:'8'},{h:15,cl:'9'},{h:17,cl:'10'}]),
        narr:'The enrolled population leans toward higher deprivation, which shapes expected demand, equity funding and screening priorities.',
        chips:['code shown','joined to deprivation reference','de-identified']},
+      {q:'Across the IMD domains, where is our population most deprived — and how is access?',
+       head:'<b>Access</b> and <b>Housing</b> are the sharpest domains',
+       kind:'Bar · IMD 2023 domains', ctitle:'Enrolees in the most-deprived IMD quintile, by domain (%)',
+       chart:hbars([
+         {lab:'Access to services',w:100,disp:'52%'},
+         {lab:'Housing',w:85,disp:'44%'},
+         {lab:'Income',w:63,disp:'33%'},
+         {lab:'Employment',w:58,disp:'30%'},
+         {lab:'Health',w:52,disp:'27%'},
+         {lab:'Crime',w:42,disp:'22%'},
+         {lab:'Education',w:37,disp:'19%'}]),
+       narr:'Access and Housing stand out. The IMD Access domain reflects travel time and distance to GPs, pharmacies and other services; Housing reflects crowding and quality — both are direct levers for rural and high-needs populations.',
+       chips:['code shown','NZ IMD 2023 domains','de-identified']},
       {q:'How many of our practices serve rural or remote communities?',
        head:'About <b>1 in 6</b> practices are rural or remote',
        kind:'Donut · classification', ctitle:'Practices by urban / rural classification',
